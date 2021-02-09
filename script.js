@@ -9,7 +9,11 @@ var ws = document.getElementById('w_seconds');
 var bm = document.getElementById('b_minutes');
 var bs = document.getElementById('b_seconds');
 
-var cycleNumber = document.getElementById("cycle_number").value;
+
+function playSound(url) {
+  const audio = new Audio(url);
+  audio.play();
+}
 
 
 
@@ -25,7 +29,6 @@ document.getElementById('w_seconds').innerText = inputWorkSeconds;
 document.getElementById('b_minutes').innerText = inputBreakMinute;
 document.getElementById('b_seconds').innerText = inputBreakSeconds;
 
-console.log(cycleNumber)
 
 //store a reference to a timer variable
 var startTimer;
@@ -52,36 +55,33 @@ reset.addEventListener('click', function(){
 
 //Start Timer Function
 function timer(){
-  for (let i=0; i<cycleNumber; i++)
-    //Work Timer Countdown
-    if(ws.innerText != 0){
-        ws.innerText--;
-    } else if(wm.innerText != 0 && ws.innerText == 0){
-        ws.innerText = 59;
-        wm.innerText--;
-    }
+  //Work Timer Countdown
+  if(ws.innerText != 0){
+      ws.innerText--;
+  } else if(wm.innerText != 0 && ws.innerText == 0){
+      ws.innerText = 59;
+      wm.innerText--;
+  }
+  //Break Timer Countdown
+  if(wm.innerText == 0 && ws.innerText == 0){
+      if(bs.innerText != 0){
+          bs.innerText--;
+      } else if(bm.innerText != 0 && bs.innerText == 0){
+          bs.innerText = 59;
+          bm.innerText--;
+      }
+  }
 
-    //Break Timer Countdown
-    if(wm.innerText == 0 && ws.innerText == 0){
-        if(bs.innerText != 0){
-            bs.innerText--;
-        } else if(bm.innerText != 0 && bs.innerText == 0){
-            bs.innerText = 59;
-            bm.innerText--;
-        }
-    }
+  //Increment Counter by one if one full cycle is completed
+  if(wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerText == 0){
+    document.getElementById('w_minutes').innerText = inputWorkMinute;
+    document.getElementById('w_seconds').innerText = inputWorkSeconds;
+    document.getElementById('b_minutes').innerText = inputBreakMinute;
+    document.getElementById('b_seconds').innerText = inputBreakSeconds;
 
-    //Increment Counter by one if one full cycle is completed
-    if(wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerText == 0){
-        wm.innerText = inputWorkMinute;
-        ws.innerText = inputWorkSeconds;
+    document.getElementById('counter').innerText++;
 
-        bm.innerText = inputBreakMinutes;
-        bs.innerText = inputBreakSeconds;
-
-        document.getElementById('counter').innerText++;
-
-    }
+  }
 }
 
 //Stop Timer Function
