@@ -9,7 +9,7 @@ The main drawback is the fact that the timer and the break timer time are hardco
 
 ### Future features
 
-I'm working on adding the possibility for the user to choose between a set of different possible time, for example 30-5, 45-10 etc.
+<del>I'm working on adding the possibility for the user to choose between a set of different possible time, for example 30-5, 45-10 etc.</del>
 And also the possibility to use custom time.
 
 Lastly one feature i'm working on is the one that play some kind of alarm when the timer reaches the end.
