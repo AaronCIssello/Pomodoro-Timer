@@ -91,3 +91,26 @@ p {
 #stop {
     grid-area: 3 / 4 / 3 / 4;
 }
+
+form{
+  text-align: center;
+  margin-top: 15px;
+}
+
+form label{
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+form input{
+  margin: 0 15px 0 15px;
+}
+
+form h3{
+  color: white;
+}
+
+#cycle_number{
+  margin-top: 15px;
+}

@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
     <title>Pomodoro Timer</title>
 </head>
 <body>
     <h1>Pomodoro Timer</h1>
+    
     <div id="container">
         <p id="work" class="label">Work:</p><p id="break" class="label">Break:</p><p id="cycles" class="label">Cycles:</p>
         <!--Work Timer-->
@@ -28,5 +28,24 @@
         <button id="stop" class="btn">Pause</button>
         <button id="reset" class="btn">Reset</button>
     </div>
+    <h1>Work Timer</h1>
+    <form id="work">
+      <label id="label" for="minute">Minutes</label>
+      <input type="number" name="minute" id="input_work_minutes" min="0">
+      <label for="seconds">Seconds</label>
+      <input type="number" name="seconds" id="input_work_seconds" min="0" max="59">
+    </form>
+    <h1>Break Timer</h1>
+    <form id="break">
+      <label id="label" for="minute">Minutes</label>
+      <input type="number" name="minute" id="input_break_minutes" min="0">
+      <label for="seconds">Seconds</label>
+      <input type="number" name="seconds" id="input_break_seconds" min="0" max="59">
+      <br>
+      <label for="cycle_number">The number of cycles  </label>
+      <input type="number" id="cycle_number" min="0">
+      <h3>To setup the new Session time press (ctrl + r)</h3>
+    </form>
+    <script src="script.js"></script>
 </body>
 </html>
